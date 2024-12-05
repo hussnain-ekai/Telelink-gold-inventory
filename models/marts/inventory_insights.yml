@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: inventory_insights
+    description: This model consolidates product and inventory data to provide detailed insights into stock availability and utilization across locations.
+    columns:
+      - name: link_inventory_key
+        description: The unique key for linking inventory records.
+        tests:
+          - not_null
+          - unique
+      - name: productname
+        description: The name of the product.
+        tests:
+          - not_null
+      - name: locationname
+        description: The name of the stock location.
+        tests:
+          - not_null
+      - name: total_quantity_on_hand
+        description: Total quantity of products on hand.
+      - name: total_quantity_reserved
+        description: Total quantity of products reserved.
+      - name: total_inventory
+        description: Total inventory combining on hand and reserved quantities.
+      - name: utilization_ratio
+        description: The ratio of reserved quantity to total inventory.
